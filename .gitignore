@@ -33,3 +33,5 @@ server.pid
 dist/
 build/
 *.egg-info/
+
+transmission/

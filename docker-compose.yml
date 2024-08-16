@@ -14,9 +14,6 @@ services:
       - /dev/net/tun
     cap_add:
       - NET_ADMIN
-    # Disable in prod
-    ports:
-      - 8888:8080
 
   api:
     build:
@@ -26,3 +23,20 @@ services:
     ports:
       - 9000:8000
     restart: always
+
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - USER=${TRANS_USERNAME}
+      - PASS=${TRANS_PASSWORD}
+    volumes:
+      - ${TRANS_CONFIG_PATH}:/config
+      - ${DOWNLOAD_HOST_PATH}:/downloads
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped

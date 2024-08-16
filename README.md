@@ -4,6 +4,16 @@ Cookie is fastapi server that is used for connecting to a transmission rpc clien
 
 ![Screenshot](docs/cookie-fe.png)
 
+## Setup
+
+```bash
+touch .env
+
+mkdir -p transmission/config
+mkdir transmission/downloads
+```
+
+
 
 ## Install
 

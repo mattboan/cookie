@@ -8,3 +8,4 @@ cssselect
 requests
 bs4
 pyjwt
+uvicorn

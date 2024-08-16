@@ -167,6 +167,7 @@ async def search_torrent(query: str, username: str = Depends(verify_token)):
         torrents = search(query)
         return torrents
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/torrents/magnet")

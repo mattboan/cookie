@@ -1,0 +1,28 @@
+
+services:
+  proton-privoxy:
+    image: walt3rl/proton-privoxy
+    container_name: proton-privoxy
+    environment:
+      - PVPN_USERNAME=${VPN_USERNAME}
+      - PVPN_PASSWORD=${VPN_PASSWORD}
+      - PVPN_SERVER=au1.protonvpn.com  # Specify the server name here
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    # Disable in prod
+    ports:
+      - 8888:8080
+
+  api:
+    build:
+      dockerfile: ./docker/api/Dockerfile
+    depends_on:
+      - proton-privoxy
+    ports:
+      - 9000:8000
+    restart: always

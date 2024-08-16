@@ -1,0 +1,10 @@
+transmission-rpc
+fastapi[standard]
+python-dotenv
+purl
+lxml
+python-dateutil
+cssselect
+requests
+bs4
+pyjwt

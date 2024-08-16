@@ -1,0 +1,35 @@
+# Ignore .env file
+.env
+
+# Ignore Python virtual environment
+venv/
+
+# Ignore Python cache files
+__pycache__/
+
+# Ignore Python compiled files
+*.pyc
+
+# Ignore logs
+logs/
+
+# Ignore database files
+db.sqlite3
+
+
+# Ignore test coverage reports
+htmlcov/
+
+# Ignore development server
+server.pid
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore package build files
+dist/
+build/
+*.egg-info/
